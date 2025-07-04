@@ -1,0 +1,108 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+/* Main container */
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* Row */
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Row title */
+.row-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* Input and button wrapper */
+.row-input-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Input field */
+.row-input input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.row-input input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Button */
+.row-button{
+    margin-top: 10px;
+}
+.row-button button {
+    margin-left: 15px;
+    margin-top: 5px;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.row-button button:hover {
+    background-color: #2980b9;
+}
+
+/* Reject/Error message */
+.row-reject p {
+    color: #e74c3c;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Description */
+.row-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.row-description-1 {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.row-description-2 {
+    font-style: italic;
+}

@@ -1,0 +1,74 @@
+/* Container for result section */
+.container-2 {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Title section */
+.title-1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.title-2 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Row layout */
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+ /* Row container with flex alignment */
+.row-input-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input styling */
+.row-input-button input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.row-input-button input:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+}
+
+/* Copy button next to input */
+.row-input-button button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 100%; /* Match input height */
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.row-input-button button:hover {
+    background-color: #2980b9;
+}
