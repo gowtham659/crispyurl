@@ -42,7 +42,7 @@ A full-stack URL Shortener application that allows users to input long URLs and 
 ## 📁 Project Structure
 
 url-shortener/
-├── client/ # React frontend
+|-- client/ # React frontend
 │ ├── src/
 │ │ ├── components/
 │ │ ├── pages/
