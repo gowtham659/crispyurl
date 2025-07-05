@@ -40,23 +40,30 @@ A full-stack URL Shortener application that allows users to input long URLs and 
 ---
 
 ## 📁 Project Structure
-
-url-shortener/
-|-- client/ # React frontend
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── services/ # Axios logic
-│ │ └── App.jsx
-│ └── package.json
-│
-├── server/ # Go backend
-│ ├── cmd/
-│ │ └── main.go
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── config/
-│ └── go.mod
-│
-└── README.md
+- url-shortener/
+    - client/ # React frontend
+        - public/
+          - index.html
+        - src/
+          - forminterface
+            - styles
+              - beforestyles.css
+              - afterstyles.css
+          - PageIndex.jsx
+          - AfterShortened.jsx
+          - BeforeShortened.jsx
+        - index.js
+      - package-lock.json
+      - package.json
+  - server
+    - database
+      - db.go
+    - handlers
+      - handler.go
+    - model
+      - url_model.go
+    - go.mod
+    - go.sum
+    - main.go
+    - .gitignore
+    - README.md
