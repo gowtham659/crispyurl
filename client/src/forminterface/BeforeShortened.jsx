@@ -18,7 +18,7 @@ export function BeforeShortened(){
         onSubmit: (values)=>{
             axios.post("https://react-go-oracle-app.onrender.com/shorten",{
                 "OrgUrl": values.Url,
-                "baseUrl": "https://react-go-oracle-app.onrender.com"
+                "BaseUrl": "https://react-go-oracle-app.onrender.com"
             })
             .then((values)=>{
                 let responseData = values.data;
