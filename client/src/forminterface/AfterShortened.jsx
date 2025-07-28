@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom"
 import './styles/afterstyles.css'
+import { useState } from "react"
 export function AfterShortened(){
     const location = useLocation()
     const url = location.state
+    const [copy, setCopy] = useState("Copy")
     console.log(url)
     return(
         <div>
@@ -21,7 +23,10 @@ export function AfterShortened(){
                             readOnly
                             onClick={(e) => e.target.select()}
                         />
-                        <button onClick={() => navigator.clipboard.writeText(url.shorturl)}>Copy</button>
+                        <button onClick={() => {
+                            navigator.clipboard.writeText(url.shorturl)
+                            setCopy("Copied")
+                        }}>{copy}</button>
                     </div>
                 </div>
             </div>

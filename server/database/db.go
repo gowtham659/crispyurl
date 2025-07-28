@@ -1,24 +1,28 @@
 package database
 
 import (
-	"database/sql"
 	"errors"
 	"log"
 
-	"github.com/sijms/go-ora/v2"
+	//"github.com/sijms/go-ora/v2"
+	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 //creates a connection and return a connection and an error , connection is returned if success else error if failed
-func DbConnect()( *sql.DB, error){
-	conString := go_ora.BuildUrl("localhost",1521, "orcl","C##GOWTHAM","1234",nil)
-
-	dbConnect,er := sql.Open("oracle",conString)
+func DbConnect()( *sqlx.DB, error){
+	db,er := sqlx.Connect("postgres","user=postgres dbname=urlshortnerdb sslmode=disable password=gowtham123 host=localhost")
 	if er!=nil{
 		log.Fatal("Connection Error: ",er)
 	}
 
-	if er := dbConnect.Ping(); er != nil{
-		return nil, errors.New(er.Error())
-	}
-	return dbConnect, nil
+    // Test the connection to the database
+    if err := db.Ping(); err != nil {
+        return nil, errors.New(er.Error())
+    } else {
+        log.Println("Successfully Connected")
+    }
+	
+
+	return db, nil
 }

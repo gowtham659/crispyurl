@@ -6,7 +6,7 @@ client/README.md
 # Golang
 server/bin
 server/vendor
-
+server/server_test.go
 # Environment files
 *.env
 .env.*
@@ -19,5 +19,5 @@ server/vendor
 
 # Docker
 *.local
-
-.txt
+# text
+*.txt
