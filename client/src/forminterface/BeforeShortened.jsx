@@ -9,12 +9,16 @@ export function BeforeShortened(){
     const navigate = useNavigate()
     const [reject,setReject] =  useState("")
 
+    /* const currentUrl = window.location.href;
+    console.log(currentUrl); // Example: "http://example.com/path/to/page?param=value#section"
+    console.log(currentUrl) */
 
     const formik = useFormik({
         initialValues:{Url:""},
         onSubmit: (values)=>{
-            axios.post("http://localhost:8989/shorten",{
-                "OrgUrl": values.Url
+            axios.post("https://react-go-oracle-app.onrender.com/shorten",{
+                "OrgUrl": values.Url,
+                "baseUrl": "https://react-go-oracle-app.onrender.com"
             })
             .then((values)=>{
                 let responseData = values.data;

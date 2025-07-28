@@ -17,10 +17,9 @@ type UrlDetails struct {
 }
 
 type RequestUrl struct {
-	OrgUrl string `json:"OrgUrl"`
+	OrgUrl 		string `json:"OrgUrl"`
+	BaseUrl		string `json:"BaseUrl"`
 }
-
-var baseUrl = "http://localhost:8989/"
 
 // Generate a random short code
 func GenerateShortCode() string {
@@ -48,9 +47,9 @@ func ShortenUrl(c *fiber.Ctx) error {
 	scode := GenerateShortCode()
 
 	//inserting original url, shortcode into db
-	status := model.InsertUrl(actualUrl.OrgUrl, baseUrl, scode)
+	status := model.InsertUrl(actualUrl.OrgUrl, actualUrl.BaseUrl, scode)
 	if status {
-		shortUrl := baseUrl + scode
+		shortUrl := actualUrl.BaseUrl + scode
 
 		urldetails.OriginalUrl = actualUrl.OrgUrl
 		urldetails.Message = "success"
