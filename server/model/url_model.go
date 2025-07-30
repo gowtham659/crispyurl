@@ -8,12 +8,12 @@ import (
 
 var con, dber = database.DbConnect()
 
-func InsertUrl(original_url string, baseUrl string, shot_code string) bool {
+func InsertUrl(original_url string, baseUrl string, short_code string) bool {
 	if dber != nil {
 		log.Fatalln("connection error")
 	}
 
-	query, er := con.Exec("INSERT INTO url_shortener (original_url,shorted_url,short_code) VALUES ($1, $2, $3)", original_url, (baseUrl +"/"+ shot_code), shot_code)
+	query, er := con.Exec("INSERT INTO url_shortener (original_url,shorted_url,short_code) VALUES ($1, $2, $3)", original_url, (baseUrl + short_code), short_code)
 	if er != nil {
 		fmt.Println("insert query error", er)
 	}
