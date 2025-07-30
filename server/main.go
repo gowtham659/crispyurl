@@ -9,7 +9,12 @@ import (
 func main(){
 	app := fiber.New()
 	//hadling cors
-	app.Use(cors.New())
+	//app.Use(cors.New())
+
+	app.Use(cors.New(cors.Config{
+    AllowOrigins: "http://localhost:3000/, https://react-go-oracle-app-1.onrender.com/",
+    AllowHeaders: "Origin, Content-Type, Accept",
+}))
 	app.Get("/",func (c *fiber.Ctx) error {
 		return c.SendString("request success")
 	})
