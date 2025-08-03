@@ -10,13 +10,18 @@ import (
 	//"github.com/sijms/go-ora/v2"
 	_ "github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
+	"github.com/joho/godotenv"
 )
 
 // creates a connection and return a connection and an error , connection is returned if success else error if failed
 func DbConnect() (*sql.DB, error) {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
 	dbUrl := os.Getenv("DATABASE_URL")
 	db, er := sql.Open("postgres", dbUrl)
-	//db,er := sqlx.Connect("postgres","user=postgres dbname=urlshortnerdb sslmode=disable password=gowtham123 host=localhost")
+
 	if er != nil {
 		fmt.Println("Connection Error: ", er)
 	}
