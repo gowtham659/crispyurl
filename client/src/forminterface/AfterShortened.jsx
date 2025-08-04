@@ -1,6 +1,9 @@
 import { useLocation } from "react-router-dom"
 import './styles/afterstyles.css'
 import { useState } from "react"
+
+
+
 export function AfterShortened(){
     const location = useLocation()
     const url = location.state
@@ -13,10 +16,11 @@ export function AfterShortened(){
                     <div className='title-1'>Your shortened URL</div>
                     <div className='title-2'>Copy the short link and share it in messages, texts, posts, websites and other locations.</div>
                 </div>
-                <div className='row'>
+                <div className='row' >
                     <div className="row-input-button">
                         {/* <input type="text" name="Url" placeholder="Enter the link here" value={url.shorturl} /> */}
-                        <input
+                        <div>
+                            <input
                             type="text"
                             name="Url"
                             value={url.shorturl}
@@ -27,6 +31,12 @@ export function AfterShortened(){
                             navigator.clipboard.writeText(url.shorturl)
                             setCopy("Copied")
                         }}>{copy}</button>
+                        </div>
+                        <div>
+                            <a href={url.shortUrl} className="bi bi-link btn btn-primary"></a>
+                            <a href={url.appUrl} className="btn btn-danger">shorten another URL</a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

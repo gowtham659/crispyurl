@@ -8,37 +8,45 @@ import './styles/beforestyles.css'
 export function BeforeShortened(){
     const navigate = useNavigate()
     const [reject,setReject] =  useState("")
+    const [urlValidate, setUrlValidate] = useState({display:'none'})
 
+    const parentUrl = window.location.href;
     //const currentUrl = "http://localhost:8989/";
-    const currentUrl = "https://react-go-oracle-app.onrender.com/";
+    const currentUrl = "https://crispy-url-app.onrender.com/";
     const formik = useFormik({
         initialValues:{Url:""},
         onSubmit: (values)=>{
-            axios.post(currentUrl+"shorten",{
-                "OrgUrl": values.Url,
-                "BaseUrl": currentUrl
-            })
-            .then((values)=>{
-                let responseData = values.data;
-                console.log(responseData)
-                if (responseData.message ==="success"){
-                    console.log("navigating to /shortener ")
-                    navigate("/shortener",{state: {"shorturl":responseData["shorten_url"]}})
-                }
-                else{
-                    setReject("Unable to generate Short URL!!!")
-                }
-            })
-            .catch(error=>{
-                console.log(error.message, error.stack)
-            })
-            
+            let regex = /^(https?:\/\/(?:www\.)?)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/
+            if (regex.test(values.Url)){
+                setUrlValidate({display:'none'})
+                    axios.post(currentUrl+"shorten",{
+                    "OrgUrl": values.Url,
+                    "BaseUrl": currentUrl
+                })
+                .then((values)=>{
+                    let responseData = values.data;
+                    console.log(responseData)
+                    if (responseData.message ==="success"){
+                        console.log("navigating to /shortener ")
+                        navigate("/shortener",{state: {"shortUrl":responseData["shorten_url"],"appUrl":parentUrl+"/shorten"}})
+                    }
+                    else{
+                        setReject("Unable to generate Short URL!!!")
+                    }
+                })
+                .catch(error=>{
+                    console.log(error.message, error.stack)
+                })
+            }
+            else{
+                setUrlValidate({display:"inline",color:'red',textAlign:'center'})
+            }
         },
         
     })
     return(
         <div>
-            <div className="container">
+            <div className="root-container">
                 <div className="title">
                     Short URL
                 </div>
@@ -48,9 +56,10 @@ export function BeforeShortened(){
                     </div>
                     <div className="row-input-button">
                         <form onSubmit={formik.handleSubmit}>
-                            <span className="row-input">
+                            <span className="row-input ">
                                 <input type="text" name="Url" placeholder="Enter the link here" onChange={formik.handleChange} required/>
                             </span>
+                            <span style={urlValidate}>Incorrect URL. Please Enter valid URL</span>
                             <span className="row-button"><button type='submit' >Shorten URL</button></span>
                         </form>
                         <div className='row-reject'>
