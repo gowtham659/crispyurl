@@ -28,7 +28,7 @@ export function BeforeShortened(){
                     console.log(responseData)
                     if (responseData.message ==="success"){
                         console.log("navigating to /shortener ")
-                        navigate("/shortener",{state: {"shortUrl":responseData["shorten_url"],"appUrl":parentUrl+"/shorten"}})
+                        navigate("/shortener",{state: {"shortUrl":responseData["shorten_url"],"appUrl":parentUrl}})
                     }
                     else{
                         setReject("Unable to generate Short URL!!!")
