@@ -23,7 +23,7 @@ export function AfterShortened(){
                             <input
                             type="text"
                             name="Url"
-                            value={url.shorturl}
+                            value={url.shortUrl}
                             readOnly
                             onClick={(e) => e.target.select()}
                         />
