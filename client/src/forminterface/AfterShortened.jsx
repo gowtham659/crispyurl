@@ -28,13 +28,13 @@ export function AfterShortened(){
                             onClick={(e) => e.target.select()}
                         />
                         <button onClick={() => {
-                            navigator.clipboard.writeText(url.shorturl)
+                            navigator.clipboard.writeText(url.shortUrl)
                             setCopy("Copied")
                         }}>{copy}</button>
                         </div>
-                        <div>
-                            <a href={url.shortUrl} className="bi bi-link btn btn-primary"></a>
-                            <a href={url.appUrl} className="btn btn-danger">shorten another URL</a>
+                        <div className="other-btn">
+                            <a href={url.shortUrl} target="_blank" rel="noreferrer"><button  id="btn1"><li class="fa fa-external-link"></li></button></a>
+                            <button id="btn2"><a href={url.appUrl}  >shorten another URL</a></button>
                         </div>
                         
                     </div>

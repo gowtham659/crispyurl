@@ -68,8 +68,33 @@
     height: 100%; /* Match input height */
     transition: background-color 0.3s;
     white-space: nowrap;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .row-input-button button:hover {
     background-color: #2980b9;
+}
+
+.other-btn button{
+    margin-right: 5px;
+}
+.other-btn a{
+    text-decoration: none;
+    color: white;
+}
+
+#btn1{
+    background-color: red;
+}
+#btn1:hover{
+    background-color: rgb(163, 2, 2);
+}
+#btn2{
+    background-color: green;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+#btn2:hover{
+    background-color: rgb(4, 90, 4);
 }

@@ -2,7 +2,8 @@
 client/node_modules
 client/build
 client/README.md
-
+client/Dockerfile
+client/.dockerignore
 # Golang
 server/bin
 server/vendor
