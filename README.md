@@ -1,8 +1,10 @@
 # react-go-oracle-app
 # 🔗 URL Shortener App
 
-A full-stack URL Shortener application that allows users to input long URLs and generate short, shareable links. Built using **ReactJS** (frontend), **Go Fiber** (backend), and **Oracle Database** (storage).
+A full-stack URL Shortener application that allows users to input long URLs and generate short, shareable links. Built using **ReactJS** (frontend), **Go Fiber** (backend), and **PostgreSQL Database** (storage).
+## Live Demo
 
+🔗 [View the deployed app](https://crispy-url.onrender.com/)
 ---
 
 ## 🖥️ Tech Stack
